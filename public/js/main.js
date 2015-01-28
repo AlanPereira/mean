@@ -1,6 +1,6 @@
 //public/js/main.js
 
-angular.module('mean', ['ngRoute'])
+angular.module('mean', ['ngRoute', 'ngResource'])
 	.config(function($routeProvider){
 		
 		$routeProvider.when('/contatos', {
