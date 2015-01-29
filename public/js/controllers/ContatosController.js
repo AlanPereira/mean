@@ -1,11 +1,11 @@
 angular.module('mean').controller('ContatosController', 
-	function($scope, $resource){
+	function($scope, Contato){
 
 		$scope.contatos = [];
 
 		$scope.filtro='';
 
-		var Contato = $resource('/contatos/:id');
+		$scope.mensagem = {texto: ''};
 		
 		function buscarContatos(){
 			Contato.query(
@@ -13,7 +13,9 @@ angular.module('mean').controller('ContatosController',
 					$scope.contatos = contatos;
 				},
 				function(erro){
-					console.log("Não foi possível obter a lista de contatos");
+					$scope.mensagem = {
+						texto: 'Não foi possível obter a lista de contatos'
+					};
 					console.log(erro);
 				}
 			);
@@ -25,7 +27,9 @@ angular.module('mean').controller('ContatosController',
 			Contato.delete({id: contato._id},
 				buscarContatos, 
 				function(erro){
-					console.log("Não foi possível remove o contato");
+					$scope.mensagem = {
+						texto: 'Não foi possível remove o contato'
+					};
 					console.log(erro);
 				}
 			);

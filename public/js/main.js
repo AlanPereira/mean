@@ -13,6 +13,11 @@ angular.module('mean', ['ngRoute', 'ngResource'])
 			controller: 'ContatoController'
 		});
 
+		$routeProvider.when('/contato', {
+			templateUrl: 'partials/contato.html',
+			controller: 'ContatoController'
+		});
+
 		$routeProvider.otherwise({redirectTo: '/contatos'});
 
 	});
