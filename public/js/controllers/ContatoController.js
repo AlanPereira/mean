@@ -14,7 +14,7 @@ angular.module('mean').controller('ContatoController',
 				}
 			);
 		}else{
-			$scope.contato ={};
+			$scope.contato = new Contato();
 		}
 
 		$scope.salva = function(){
@@ -29,5 +29,8 @@ angular.module('mean').controller('ContatoController',
 				}
 			);
 		};
-
-});
+		
+		Contato.query(function(contatos){
+			$scope.contatos = contatos;
+		});
+});	
